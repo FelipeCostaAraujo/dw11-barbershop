@@ -68,8 +68,8 @@ class _LoginPageState extends State<LoginPage> {
                             style: const TextStyle(color: Colors.white),
                             obscureText: true,
                             decoration: const InputDecoration(
-                              label: Text("senha"),
-                              hintText: "senha",
+                              label: Text("Senha"),
+                              hintText: "Senha",
                               floatingLabelBehavior:
                                   FloatingLabelBehavior.never,
                               labelStyle: TextStyle(color: Colors.black),

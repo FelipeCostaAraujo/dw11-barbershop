@@ -33,5 +33,6 @@ sealed class BarberShopTheme {
         ),
       ),
     ),
+    fontFamily: FontConstants.fontFamily,
   );
 }
