@@ -1,5 +1,5 @@
 import 'package:asyncstate/widget/async_state_builder.dart';
-import 'package:barber_shop/src/features/splash/splash.dart';
+import 'package:barber_shop/src/features/splash/splash_page.dart';
 import 'package:flutter/material.dart';
 
 import './core/ui/widgets/widgets.dart';
