@@ -1,5 +1,5 @@
 import 'package:asyncstate/widget/async_state_builder.dart';
-import 'package:barber_shop/src/features/splash/splash_page.dart';
+import 'package:barber_shop/src/features/features.dart';
 import 'package:flutter/material.dart';
 
 import './core/ui/widgets/widgets.dart';
@@ -23,6 +23,7 @@ class _BarberShopAppState extends State<BarberShopApp> {
             debugShowCheckedModeBanner: false,
             routes: {
               '/': (context) => const SplashPage(),
+              'auth/login': (context) => const LoginPage(),
             },
             navigatorObservers: [asyncNavigatorObserver],
             theme: ThemeData(
