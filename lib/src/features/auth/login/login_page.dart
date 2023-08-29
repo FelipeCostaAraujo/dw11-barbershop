@@ -92,8 +92,7 @@ class _LoginPageState extends State<LoginPage> {
                           ElevatedButton(
                             onPressed: () {},
                             style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(56)
-                            ),
+                                minimumSize: const Size.fromHeight(56)),
                             child: Text("Acessar".toUpperCase()),
                           ),
                         ],
