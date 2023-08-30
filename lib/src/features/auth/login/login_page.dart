@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
       body: DecoratedBox(
         decoration: const BoxDecoration(
           image: DecorationImage(
-            image: AssetImage('assets/images/background_image_chair.jpg'),
+            image: AssetImage(ImageConstants.backgroundChair),
             fit: BoxFit.cover,
             opacity: 0.2,
           ),
@@ -38,7 +38,7 @@ class _LoginPageState extends State<LoginPage> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           Image.asset(
-                            'assets/images/imgLogo.png',
+                            ImageConstants.imageLogo,
                             width: 100,
                             height: 100,
                           ),
