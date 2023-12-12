@@ -1,13 +1,13 @@
-sealed class AuthExecption implements Exception {
+sealed class AuthException implements Exception {
   final String message;
 
-  AuthExecption({required this.message});
+  AuthException({required this.message});
 }
 
-class AuthError extends AuthExecption {
+class AuthError extends AuthException {
   AuthError({required super.message});
 }
 
-class AuthUnauthorizedException extends AuthExecption {
+class AuthUnauthorizedException extends AuthException {
   AuthUnauthorizedException() : super(message: '');
 }

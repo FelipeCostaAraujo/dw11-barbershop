@@ -19,7 +19,7 @@ class UserRepositoryImpl implements UserRepository {
       : _restClient = restClient;
 
   @override
-  Future<Either<AuthExecption, String>> login(
+  Future<Either<AuthException, String>> login(
       String email, String password) async {
     try {
       final Response(:data) = await _restClient.unAuth.post(
@@ -45,7 +45,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<RepositoryExecption, UserModel>> me() async {
+  Future<Either<RepositoryException, UserModel>> me() async {
     try {
       final Response(:data) = await _restClient.auth.get('/me');
 
@@ -53,16 +53,16 @@ class UserRepositoryImpl implements UserRepository {
     } on DioException catch (e, s) {
       log('Erro ao buscar usuário logado', error: e, stackTrace: s);
       return Failure(
-        RepositoryExecption(message: 'Erro ao buscar usuário logado'),
+        RepositoryException(message: 'Erro ao buscar usuário logado'),
       );
     } on ArgumentError catch (e, s) {
       log('Invalid Json', error: e, stackTrace: s);
-      return Failure(RepositoryExecption(message: e.message));
+      return Failure(RepositoryException(message: e.message));
     }
   }
 
   @override
-  Future<Either<RepositoryExecption, Nil>> registerAdmin(
+  Future<Either<RepositoryException, Nil>> registerAdmin(
     ({String email, String name, String password}) userData,
   ) async {
     try {
@@ -79,13 +79,13 @@ class UserRepositoryImpl implements UserRepository {
     } on DioException catch (e, s) {
       log('Erro ao registrar usuário admin', error: e, stackTrace: s);
       return Failure(
-        RepositoryExecption(message: 'Erro ao registrar usuário admin'),
+        RepositoryException(message: 'Erro ao registrar usuário admin'),
       );
     }
   }
 
   @override
-  Future<Either<RepositoryExecption, List<UserModel>>> getEmployees(
+  Future<Either<RepositoryException, List<UserModel>>> getEmployees(
       int barbershopId) async {
     try {
       final Response(:List data) = await _restClient.auth
@@ -96,13 +96,13 @@ class UserRepositoryImpl implements UserRepository {
     } on DioException catch (e, s) {
       log('Erro ao buscar colaboradores', error: e, stackTrace: s);
       return Failure(
-        RepositoryExecption(message: 'Erro ao buscar colaboradores'),
+        RepositoryException(message: 'Erro ao buscar colaboradores'),
       );
     } on ArgumentError catch (e, s) {
       log('Erro ao converter colaboradores (Invalid Json)',
           error: e, stackTrace: s);
       return Failure(
-        RepositoryExecption(
+        RepositoryException(
           message: 'Erro ao converter colaboradores (Invalid Json)',
         ),
       );
@@ -110,7 +110,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<RepositoryExecption, Nil>> registerAdmAsEmployee(
+  Future<Either<RepositoryException, Nil>> registerAdmAsEmployee(
       ({List<String> workDays, List<int> workHours}) userModel) async {
     try {
       final userModelResult = await me();
@@ -134,7 +134,7 @@ class UserRepositoryImpl implements UserRepository {
       log('Erro ao inserir administrador como colaborador',
           error: e, stackTrace: s);
       return Failure(
-        RepositoryExecption(
+        RepositoryException(
           message: 'Erro ao inserir administrador como colaborador',
         ),
       );
@@ -142,7 +142,7 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
-  Future<Either<RepositoryExecption, Nil>> registerEmployee(
+  Future<Either<RepositoryException, Nil>> registerEmployee(
       ({
         int barbershopId,
         String email,
@@ -167,7 +167,7 @@ class UserRepositoryImpl implements UserRepository {
       log('Erro ao inserir administrador como colaborador',
           error: e, stackTrace: s);
       return Failure(
-        RepositoryExecption(
+        RepositoryException(
             message: 'Erro ao inserir administrador como colaborador'),
       );
     }

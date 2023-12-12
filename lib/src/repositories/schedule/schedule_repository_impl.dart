@@ -18,7 +18,7 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
       : _restClient = restClient;
 
   @override
-  Future<Either<RepositoryExecption, Nil>> scheduleClient(
+  Future<Either<RepositoryException, Nil>> scheduleClient(
       ({
         int barbershopId,
         String clientName,
@@ -40,12 +40,12 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
       return Success(nil);
     } on DioException catch (e, s) {
       log('Erro ao registrar agendamento', error: e, stackTrace: s);
-      return Failure(RepositoryExecption(message: 'Erro ao agendar horário'));
+      return Failure(RepositoryException(message: 'Erro ao agendar horário'));
     }
   }
 
   @override
-  Future<Either<RepositoryExecption, List<ScheduleModel>>> findScheduleByDate(
+  Future<Either<RepositoryException, List<ScheduleModel>>> findScheduleByDate(
       ({
         DateTime date,
         int userId,
@@ -60,11 +60,11 @@ class ScheduleRepositoryImpl implements ScheduleRepository {
       return Success(schedules);
     } on DioException catch (e, s) {
       log('Erro ao buscar agendamentos de uma data', error: e, stackTrace: s);
-      return Failure(RepositoryExecption(
+      return Failure(RepositoryException(
           message: 'Erro ao buscar agendamentos de uma data'));
     } on ArgumentError catch (e, s) {
       log('Json Invalido', error: e, stackTrace: s);
-      return Failure(RepositoryExecption(message: 'Json Invalido'));
+      return Failure(RepositoryException(message: 'Json Invalido'));
     }
   }
 }

@@ -22,7 +22,7 @@ class EmployeeScheduleVM extends _$EmployeeScheduleVM {
           AsyncError(Exception(exception), StackTrace.current),
       };
 
-  Future<Either<RepositoryExecption, List<ScheduleModel>>> _getSchedules(
+  Future<Either<RepositoryException, List<ScheduleModel>>> _getSchedules(
     int userId,
     DateTime date,
   ) =>

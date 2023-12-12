@@ -17,7 +17,7 @@ class BarbershopRepositoryImpl implements BarbershopRepository {
       : _restClient = restClient;
 
   @override
-  Future<Either<RepositoryExecption, BarbershopModel>> getMyBarbershop(
+  Future<Either<RepositoryException, BarbershopModel>> getMyBarbershop(
       UserModel userModel) async {
     switch (userModel) {
       case UserModelADM():
@@ -34,7 +34,7 @@ class BarbershopRepositoryImpl implements BarbershopRepository {
   }
 
   @override
-  Future<Either<RepositoryExecption, Nil>> save(
+  Future<Either<RepositoryException, Nil>> save(
       ({
         String email,
         String name,
@@ -54,7 +54,7 @@ class BarbershopRepositoryImpl implements BarbershopRepository {
     } on DioException catch (e, s) {
       log('Erro ao registrar barbearia', error: e, stackTrace: s);
       return Failure(
-          RepositoryExecption(message: 'Erro ao registrar barbearia'));
+          RepositoryException(message: 'Erro ao registrar barbearia'));
     }
   }
 }

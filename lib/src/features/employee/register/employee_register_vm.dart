@@ -51,7 +51,7 @@ class EmployeeRegisterVm extends _$EmployeeRegisterVm {
     final UserRepository(:registerAdmAsEmployee, :registerEmployee) =
         ref.read(userRepositoryProvider);
 
-    final Either<RepositoryExecption, Nil> resultRegister;
+    final Either<RepositoryException, Nil> resultRegister;
 
     if (registerADM) {
       final dto = (workDays: workdays, workHours: workhours);

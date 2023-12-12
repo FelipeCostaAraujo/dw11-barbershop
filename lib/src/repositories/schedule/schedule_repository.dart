@@ -4,7 +4,7 @@ import 'package:dw_barbershop/src/core/fp/nil.dart';
 import 'package:dw_barbershop/src/model/schedule_model.dart';
 
 abstract interface class ScheduleRepository {
-  Future<Either<RepositoryExecption, Nil>> scheduleClient(
+  Future<Either<RepositoryException, Nil>> scheduleClient(
       ({
         int barbershopId,
         int userId,
@@ -13,7 +13,7 @@ abstract interface class ScheduleRepository {
         int time
       }) scheduleData);
 
-  Future<Either<RepositoryExecption, List<ScheduleModel>>> findScheduleByDate(
+  Future<Either<RepositoryException, List<ScheduleModel>>> findScheduleByDate(
       ({
         DateTime date,
         int userId,

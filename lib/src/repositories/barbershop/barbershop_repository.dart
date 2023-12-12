@@ -5,10 +5,10 @@ import 'package:dw_barbershop/src/model/barbershop_model.dart';
 import 'package:dw_barbershop/src/model/user_model.dart';
 
 abstract interface class BarbershopRepository {
-  Future<Either<RepositoryExecption, BarbershopModel>> getMyBarbershop(
+  Future<Either<RepositoryException, BarbershopModel>> getMyBarbershop(
       UserModel userModel);
 
-  Future<Either<RepositoryExecption, Nil>> save(
+  Future<Either<RepositoryException, Nil>> save(
       ({
         String name,
         String email,
